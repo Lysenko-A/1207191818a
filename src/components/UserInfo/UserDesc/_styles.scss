@@ -1,0 +1,84 @@
+.user {
+  &_wrap {
+    display: flex;
+    @media (max-width: $xs) {
+      flex-direction: column;
+    }
+  }
+
+  &__avatar {
+    display: block;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+
+    @media (max-width: $xs) {
+      margin: 0 auto;
+    }
+  }
+
+  &__info {
+    margin-left: 10px;
+    padding-bottom: 15px;
+    color: $dark;
+    line-height: 1.67;
+
+    @media (max-width: $xs) {
+      margin-left: 0;
+    }
+
+    &__name {
+      font-size: 16px;
+      font-weight: bold;
+
+      @media (max-width: $xs) {
+        text-align: center;
+      }
+    }
+
+    &__position {
+      font-size: 12px;
+      line-height: 1.67;
+      color: $grey-600;
+      margin-bottom: 8px;
+
+      @media (max-width: $xs) {
+        text-align: center;
+      }
+    }
+
+    &__description {
+      line-height: 1.43;
+      padding: 12px 15px 12px 0;
+      background-color: $yellow-100;
+      border: 1px solid #cecabf;
+      border-left-width: 0;
+      border-radius: 0 4px 4px 0;
+      position: relative;
+
+      &:before {
+        position: absolute;
+        content: '';
+        width: 46px;
+        height: 100%;
+        background-color: inherit;
+        right: 100%;
+        top: -1px;
+        border: 1px solid #cecabf;
+        border-radius: 4px 0 0 4px;
+        border-right: 0;
+        z-index: -1;
+
+        @media (max-width: $xs) {
+          content: none;
+        }
+      }
+
+      @media (max-width: $xs) {
+        border-radius: 4px;
+        border-left-width: 1px;
+        padding-left: 15px;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@import "fonts";
+@import "variables";
+@import "helpers";
+@import "base";
+
+@import "../components/UserInfo/UserDesc/styles";
+@import "../components/UserInfo/UserService/styles";
+@import "../components/Comments/styles";
+@import "../components/Comments/CommentsMessage/styles";
+@import "../containers/UserDetails/styles";

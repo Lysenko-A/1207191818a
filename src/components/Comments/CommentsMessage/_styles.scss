@@ -1,0 +1,49 @@
+.comments__message {
+  margin-bottom: 20px;
+
+  &__head {
+    margin-bottom: 8px;
+  }
+  &__name {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+
+  &__date {
+    font-size: 11px;
+    color: $grey-600;
+  }
+
+  &__text {
+    padding: 20px 16px 16px;
+    box-shadow: 0 2px 5px rgba($dark, .05);
+    background-color: $blue-100;
+    border: 1px solid rgba($dark, .19);
+    position: relative;
+    margin-top: 15px;
+    line-height: 1.36;;
+
+    &:after,
+    &:before {
+      position: absolute;
+      content: '';
+      bottom: 100%;
+      left: 23px;
+      width: 0;
+      height: 0;
+
+    }
+
+    &:before {
+      border-bottom: 9px solid $blue-100;
+      border-right: 8px solid transparent;
+      z-index: 111;
+      margin-left: 1px;
+    }
+
+    &:after {
+      border-bottom: 12px solid rgba($dark, .19);
+      border-right: 11px solid transparent;
+    }
+  }
+}
