@@ -1,4 +1,4 @@
-import { ADD_REVIEW_SUCCESS } from './userDetailsConstants';
+import { ADD_REVIEW_SUCCESS, CHANGES_COMMENTS_VIEW, LAST_COMMENTS } from './userDetailsConstants';
 import userAvatar from '../../assets/images/avatarUser.png';
 
 const initialState = {
@@ -56,6 +56,7 @@ const initialState = {
         'Вероника, здравствуйте! Есть такой вопрос: Особый вид куниц жизненно стабилизирует кинетический момент?',
     },
   ],
+  filterComments: LAST_COMMENTS,
 };
 
 export default function userDetailsReducer(state = initialState, action) {
@@ -64,6 +65,11 @@ export default function userDetailsReducer(state = initialState, action) {
       return {
         ...state,
         comments: state.comments.concat(action.payload),
+      };
+    case CHANGES_COMMENTS_VIEW:
+      return {
+        ...state,
+        filterComments: action.payload,
       };
     default:
       return state;

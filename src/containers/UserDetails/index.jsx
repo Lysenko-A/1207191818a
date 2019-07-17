@@ -5,7 +5,7 @@ import UserInfo from '../../components/UserInfo';
 import Comments from '../../components/Comments';
 import { Field, Formik } from 'formik';
 import * as yup from 'yup';
-import { addReviewAction } from './userDetailsAction';
+import { addReviewAction, changedCommentsViewAction } from './userDetailsAction';
 import TextAreaField from '../../components/TextAreaField';
 
 const validationSchema = yup.object().shape({
@@ -31,12 +31,17 @@ class User extends Component {
 
   render() {
     const {
-      user: { userInfoData, userService, comments },
+      user: { userInfoData, userService, comments, filterComments },
+      changedCommentsView,
     } = this.props;
     return (
       <>
-        <UserInfo userInfoData={userInfoData} userService={userService}/>
-        <Comments data={comments}/>
+        <UserInfo userInfoData={userInfoData} userService={userService} />
+        <Comments
+          data={comments}
+          filterComments={changedCommentsView}
+          showComments={filterComments}
+        />
         <div className='form_comment__wrap'>
           <div className='container'>
             <Formik
@@ -48,7 +53,7 @@ class User extends Component {
 
                 return (
                   <form onSubmit={handleSubmit}>
-                    <Field name='message' component={TextAreaField}/>
+                    <Field name='message' component={TextAreaField} />
                     <div className='text-center'>
                       <button type='submit' className='form_comment__btn_send'>
                         Написать консультанту
@@ -78,5 +83,6 @@ export default connect(
   mapStateToProps,
   {
     addReview: addReviewAction,
-  },
+    changedCommentsView: changedCommentsViewAction,
+  }
 )(User);
